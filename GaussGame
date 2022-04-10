@@ -1,0 +1,35 @@
+import javax.swing.*;
+public class codemain
+{
+    public static Object games(int computerNumber, int useanswer, int count)
+    {
+        if (useanswer <=0 || useanswer >100) {return "Your guess is invalid";}
+        else if (useanswer == computerNumber ){return "Correct!\nTotal Guesses: " + count;}
+        else if (useanswer > computerNumber) {return "Your guess is too high, try again.\nTry Number: " + count;}
+        else if (useanswer < computerNumber) {return "Your guess is too low, try again.\nTry Number: " + count;}
+        else {return "Your guess is incorrect\nTry Number: " + count;}
+
+    }
+
+
+
+    public static void main(String[] args)
+    {
+        int computeranswer=(int) (Math.random()*100);
+        int useanswer=0;
+        int count=0;
+        while (true)
+     {
+            while(useanswer>computeranswer)
+        {
+            String sr = JOptionPane.showInputDialog(null,"Enter number 1 to 100","gauss the number",3);
+            useanswer=Integer.parseInt(sr);
+            JOptionPane.showInputDialog(null,"Waiting",games(computeranswer,useanswer,count));
+            count++;
+        }
+       
+     }
+
+
+    }
+}
